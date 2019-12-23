@@ -81,9 +81,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
+                    <a href="https://github.com/HassanAlthaf/dxcShifts/blob/master/readme.md">Docs</a>
                     <a href="https://hassanalthaf.com">HassanAlthaf</a>
-                    <a href="https://github.com/laravel/laravel">Source Code</a>
+                    <a href="https://github.com/HassanAlthaf/dxcShifts">Source Code</a>
                 </div>
             </div>
         </div>
