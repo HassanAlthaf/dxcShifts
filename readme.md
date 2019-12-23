@@ -1,13 +1,22 @@
-#dxcShifts
+# dxcShifts
 
 - [Description](#description)
 - [Installation Steps](#installation-steps)
 
-##Description
+## Description
 
-A simple
+A simple employee shift and schedule management system that I developed during my internship at DXC Technologies.
 
-##Installation Steps
+Technologies used:
+
+- HTML5, CSS3
+- php7
+- MySQL
+- Laravel 6
+- Bootstrap 4
+
+
+## Installation Steps
 
 Web Service:
 - Extract files.
