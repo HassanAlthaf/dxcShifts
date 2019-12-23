@@ -1,0 +1,49 @@
+#calendar {
+  .dateList {
+    display: flex;
+    flex-wrap: wrap;
+    border-width: 1px 0 0 1px;
+    cursor: pointer;
+  }
+
+  .dateList, .dateNode {
+    border-style: solid;
+    border-color: rgba(0,0,0, 0.1);
+  }
+
+  .dateNode {
+    padding: 10px;
+    width: inherit;
+    text-align: center;
+    height: 100px;
+    border-width: 0 1px 1px 0;
+    flex: 1 0 calc((100% / 7) - 2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dateNode.emptyNode {
+    background: rgba(0, 0, 0, .05);
+  }
+
+  .select-status {
+    border-color: transparent !important;
+    outline: 0 !important;
+  }
+
+  .dateNode.dayNode {
+    background: rgba(0, 0, 0, .03);
+    height: 50px;
+  }
+
+  .calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calendar-controls.control {
+    flex-grow: 1;
+  }
+}
