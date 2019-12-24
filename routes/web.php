@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/settings', 'HomeController@settings')->name('settings');
+Route::post('/settings', 'HomeController@updateSettings')->name('updateSettings');
+
 Route::get('/schedules/{year}/{month}', 'Scheduling\SchedulingController@view')->name('viewMonthlySchedule');
 
 Route::get('/status-types/manage', 'Scheduling\ScheduleStatusController@view')->name('manageStatusTypes');
@@ -58,8 +62,6 @@ Route::post('/roles/create', 'Employees\RolesController@create')->name('submitCr
 Route::get('/roles/{id}/update', 'Employees\RolesController@viewUpdate')->middleware(\App\Http\Middleware\Employees\RolesMiddleware::class)->name('updateRole');
 Route::post('/roles/{id}/update', 'Employees\RolesController@update')->middleware(\App\Http\Middleware\Employees\RolesMiddleware::class)->name('submitUpdateRole');
 Route::get('/roles/{id}/delete', 'Employees\RolesController@delete')->middleware(\App\Http\Middleware\Employees\RolesMiddleware::class)->name('deleteRole');
-
-
 
 Route::get('/administrators/manage', 'Administrators\AdministratorsController@view')->name('manageAdministrators');
 Route::get('/administrators/{id}/delete', 'Administrators\AdministratorsController@delete')->name('deleteAdministrator');

@@ -93,7 +93,7 @@
             {
                 headerName: "Employee Information",
                 children: [
-                    {headerName: "Employee ID", field: "id", resizable: true, rowDrag: true},
+                    {headerName: "Employee ID", field: "employee_id", resizable: true, rowDrag: true},
                     {headerName: "Name", field: "name", sortable: true, resizable: true, cellRenderer: linkNameToProfile},
                     {headerName: "Role", field: "role_code", sortable: true, resizable: true},
                     {headerName: "Phone #", field: "phone_number", sortable: true, resizable: true},

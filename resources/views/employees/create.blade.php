@@ -27,6 +27,7 @@
                             @csrf
                             <table class="table table-striped">
                             <tr>
+                                <th>Employee ID</th>
                                 <th>Name</th>
                                 <th>Phone #</th>
                                 <th>Role</th>
@@ -34,6 +35,15 @@
                             </tr>
                             @for ($i = 0; $i < (request()->query('count')); $i++)
                                 <tr>
+                                    <td>
+
+                                        <input type="text" class="form-control @error($i . '.employee_id') is-invalid @enderror" name="employees[{{ $i }}][employee_id]" value="{{ old("employees." . $i .  ".employee_id") }}">
+                                        @error($i . '.employee_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </td>
                                     <td>
 
                                         <input type="text" class="form-control @error($i . '.name') is-invalid @enderror" name="employees[{{ $i }}][name]" value="{{ old("employees." . $i .  ".name") }}">
@@ -111,6 +121,7 @@
                     </div>
                 </div>
 
+                @if (request()->query('count') === null && request()->query('count') <= 0)
                 <div class="card mt-3">
                     <div class="card-header text-center">
                         Import CSV
@@ -143,6 +154,7 @@
                         </form>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

@@ -42,8 +42,10 @@ class ScheduleExportService
 
     public function deliverScheduleByEmail()
     {
-        $sendSchedule = new SendSchedule($this->render(), $this->month, $this->year);
+        if (env('EMAILS_ON')) {
+            $sendSchedule = new SendSchedule($this->render(), $this->month, $this->year);
 
-        Mail::to(config('dxc-shifts.target_email'))->send($sendSchedule);
+            Mail::to(config('dxc-shifts.target_email'))->send($sendSchedule);
+        }
     }
 }

@@ -19,10 +19,11 @@ class EmployeesImport implements ToModel, WithValidation
     {
 
         return new Employee([
-            'name'         => $row[0],
-            'phone_number' => $row[1],
-            'role_id'      => Role::whereCode($row[2])->firstOrFail()->id,
-            'shift_id'     => Shift::whereCode($row[3])->firstOrFail()->id,
+            'employee_id'  => $row[0],
+            'name'         => $row[1],
+            'phone_number' => $row[2],
+            'role_id'      => Role::whereCode($row[3])->firstOrFail()->id,
+            'shift_id'     => Shift::whereCode($row[4])->firstOrFail()->id,
             'order'        => Employee::max('order') + 1 ?? 1
         ]);
     }
@@ -30,10 +31,11 @@ class EmployeesImport implements ToModel, WithValidation
     public function rules(): array
     {
         return [
-            '0' => 'required|max:255',
-            '1' => 'required|digits_between:9,11|unique:employees,phone_number',
-            '2' => 'required|exists:employee_roles,code',
-            '3' => 'required|exists:employee_shifts,code'
+            '0' => 'required|string|unique:employees,employee_id',
+            '1' => 'required|max:255',
+            '2' => 'required|digits_between:9,11|unique:employees,phone_number',
+            '3' => 'required|exists:employee_roles,code',
+            '4' => 'required|exists:employee_shifts,code'
         ];
     }
 }

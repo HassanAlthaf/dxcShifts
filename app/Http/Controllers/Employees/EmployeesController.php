@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Employees;
 use App\Employees\Employee;
 use App\Http\Controllers\Controller;
 use App\Imports\EmployeesImport;
-use App\Scheduling\Schedule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -77,7 +76,8 @@ class EmployeesController extends Controller
 
         foreach ($request->employees as $key => $employee) {
 
-            $isValid = $employee['name'] != null
+            $isValid = $employee['employee_id']
+                    || $employee['name'] != null
                     || $employee['phone_number'] != null
                     || $employee['role_id'] != null
                     || $employee['shift_id'] != null;
@@ -92,6 +92,7 @@ class EmployeesController extends Controller
         }
 
         $validator = Validator::make($validEmployees, [
+            '*.employee_id' => 'required|string|unique:employees,employee_id',
             '*.name' => 'sometimes|required|max:255',
             '*.phone_number' => 'sometimes|required|digits_between:9,11|unique:employees,phone_number',
             '*.role_id' => 'sometimes|required|exists:employee_roles,id',

@@ -53,7 +53,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('home') }}">
-                                    <ion-icon name="home"></ion-icon> <span class="caret"></span>
+                                    <ion-icon name="home"></ion-icon>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
@@ -87,6 +87,11 @@
                                         Clone Schedule
                                     </a>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('settings') }}">
+                                    <ion-icon name="settings"></ion-icon>
+                                </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
